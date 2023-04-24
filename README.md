@@ -35,7 +35,7 @@ To get started with this project, clone the repository and install the dependenc
 
 ```sh
 Copy code
-git clone https://github.com/your-username/headless-sample.git
+git clone https://github.com/ShreyDhyani/headless-sample.git
 cd headless-sample
 yarn install
 ```
