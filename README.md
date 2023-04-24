@@ -4,10 +4,10 @@ This repository contains examples of headless components built with Vite, Tailwi
 
 ## Technologies Used
 
-[React](https://react.dev/)
-[Vite](https://vitejs.dev/)
-[Tailwind CSS](https://tailwindcss.com/)
-[TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)   
+- [Vite](https://vitejs.dev/)    
+- [Tailwind CSS](https://tailwindcss.com/)    
+- [TypeScript](https://www.typescriptlang.org/)    
 
 ## Why Headless Components?
 
