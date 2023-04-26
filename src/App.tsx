@@ -4,9 +4,11 @@ import FirstCountdownUI from "./components/FirstCountdownUI";
 import { CountdownRenderProps } from "./interfaces";
 import SecondCountdownUI from "./components/SecondCountdownUI";
 // import useCountdown from "./hooks/useCountdown";
-import HeadlessButton from "./components/HeadlessButton";
-import ReuseButton from "./components/ReuseButton";
-import ReuseMergeExampleButton from "./components/ReuseMergeExampleButton";
+import HeadlessButton from "./components/Button/src/HeadlessButton";
+import ReuseButton from "./components/Button/src/ReuseButton";
+import HeadlessTextInput from "./components/TextInput/HeadlessTextInput";
+import ReuseTextInput from "./components/TextInput/ReuseTextInput";
+// import ReuseMergeExampleButton from "./components/ReuseButton/ReuseButton";
 // import { twMerge } from "tailwind-merge";
 
 function App() {
@@ -15,8 +17,10 @@ function App() {
   // const { timeLeft, isValidDate, isValidFutureDate } = useCountdown({ date });
 
   const [busy, setBusy] = useState(false);
-  const [busy1, setBusy1] = useState(false);
+  // const [busy1, setBusy1] = useState(false);
   const [busy2, setBusy2] = useState(false);
+  const [value, setValue] = useState("");
+  const [value1, setValue1] = useState("");
 
   const handleClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -65,31 +69,7 @@ function App() {
         Click Me !!
       </HeadlessButton>
 
-      <button
-        onClick={(e) => {
-          console.log("e.target", e.target);
-        }}
-      >
-        Clicky!!!!!!
-      </button>
-
       <ReuseButton
-        onClick={() => {
-          setBusy1(true);
-          setTimeout(() => {
-            setBusy1(false);
-          }, 3000);
-        }}
-        buttonBaseClasses={{
-          backgroundColor: "bg-red-600 hover:bg-red-400",
-          padding: "p-5 px-1 py-2",
-        }}
-        busy={busy1}
-      >
-        Reuse Button
-      </ReuseButton>
-
-      <ReuseMergeExampleButton
         className="p-0 py-2 bg-yellow-700 hover:bg-yellow-300 hover:text-black font-extrabold w-[400px] text-4xl transform"
         onClick={() => {
           setBusy2(true);
@@ -101,7 +81,37 @@ function App() {
         busy={busy2}
       >
         Reuse Test Button
-      </ReuseMergeExampleButton>
+      </ReuseButton>
+
+      <div className="w-1/3 flex flex-col">
+        <HeadlessTextInput
+          wrapperClassName="flex justify-center items-center relative"
+          className="border border-black rounded-md w-full pl-6 pr-2 py-1"
+          label={<label className="text-center">This is text input</label>}
+          error={
+            value.toLowerCase() === "error" && (
+              <div className="text-red-500 font-extrabold text-center">
+                Error Here
+              </div>
+            )
+          }
+          type="text"
+          textInputPrefix={<div className="absolute top-1 left-2">₹</div>}
+          textInputSuffix={<div className="absolute top-1 right-2">%</div>}
+          onChange={(value) => {
+            if (value || value === "") setValue(value);
+          }}
+          value={value}
+        />
+      </div>
+      <div className="w-1/3">
+        <ReuseTextInput
+          value={value1}
+          onChange={(value) => {
+            if (value || value === "") setValue1(value);
+          }}
+        />
+      </div>
     </div>
   );
 }

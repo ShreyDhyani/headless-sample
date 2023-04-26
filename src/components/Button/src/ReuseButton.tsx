@@ -3,6 +3,7 @@ import HeadlessButton, { HeadlessButtonProps } from "./HeadlessButton";
 import { twMerge } from "tailwind-merge";
 
 export interface ReuseMergeExampleButtonProps extends HeadlessButtonProps {
+  //   variant?: string;
   buttonPrefix?: React.ReactNode;
   buttonSuffix?: React.ReactNode;
 }
@@ -18,7 +19,7 @@ const ReuseMergeExampleButton: FC<ReuseMergeExampleButtonProps> = (props) => {
       className={finalClassNames}
       onClick={props.onClick}
       type={props.type}
-      disabled={props.disabled || props.busy}
+      disabled={props.disabled}
       busy={props.busy}
       busyText={props.busyText}
       onMouseEnter={props.onMouseEnter}

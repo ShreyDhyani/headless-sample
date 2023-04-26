@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import resolvedStyleProps from "../utils/resolveStyleByProps";
-import HeadlessButton, { HeadlessButtonProps } from "./HeadlessButton";
+import HeadlessButton, {
+  HeadlessButtonProps,
+} from "./Button/src/HeadlessButton";
 
 export interface ReuseButtonProps
   extends Omit<HeadlessButtonProps, "className"> {
